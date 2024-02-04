@@ -1,0 +1,2 @@
+1. Создание папок src, static, templates  с переносом html-файлов
+2. Установил jinja2
