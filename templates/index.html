@@ -9,7 +9,7 @@
 	<div class="container">
 		<div class="breadcrumbs-main">
 			<ol class="breadcrumb">
-				<li><a href="index.html">Главная</a></li>
+				<li><a href="{{ url_for('index')}}">Главная</a></li>
 				<li class="active"> . . . </li>
 			</ol>
 		</div>
@@ -57,13 +57,16 @@
 </div>
 <!--about-end-->
 <!--product-starts-->
+<div class="account-top heading">
+	<h2>Чаще всего просматривают</h2>
+</div>
 <div class="product">
 	<div class="container">
 		<div class="product-top">
 			<div class="product-one">
 				<div class="col-md-3 product-left">
 					<div class="product-main simpleCart_shelfItem">
-						<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-1.png')}}" alt="" /></a>
+						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-1.png')}}" alt="" /></a>
 						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
 						<div class="product-bottom">
 							<h3>Оригинальный дизайн</h3>
@@ -77,7 +80,7 @@
 				</div>
 				<div class="col-md-3 product-left">
 					<div class="product-main simpleCart_shelfItem">
-						<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-2.png')}}" alt="" /></a>
+						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-2.png')}}" alt="" /></a>
 						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
 						<div class="product-bottom">
 							<h3>Оригинальный дизайн</h3>
@@ -91,7 +94,7 @@
 				</div>
 				<div class="col-md-3 product-left">
 					<div class="product-main simpleCart_shelfItem">
-						<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-3.png')}}"  alt="" /></a>
+						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-3.png')}}"  alt="" /></a>
 						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
 						<div class="product-bottom">
 							<h3>Оригинальный дизайн</h3>
@@ -105,7 +108,7 @@
 				</div>
 				<div class="col-md-3 product-left">
 					<div class="product-main simpleCart_shelfItem">
-						<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-4.png')}}" alt="" /></a>
+						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-4.png')}}" alt="" /></a>
 						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
 						<div class="product-bottom">
 							<h3>Оригинальный дизайн</h3>
@@ -120,9 +123,29 @@
 				<div class="clearfix"></div>
 			</div>
 			<div class="product-one">
+				<div class="account-top heading">
+					<h2>Советская классика</h2>
+					<br>
+					<br>
+				</div>
 				<div class="col-md-3 product-left">
 					<div class="product-main simpleCart_shelfItem">
-						<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-5.png')}}" alt="" /></a>
+						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-5.png')}}" alt="" /></a>
+						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
+						<div class="product-bottom">
+							<h3>Оригинальный дизайн</h3>
+							<p>Закажите сейчас</p>
+							<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
+						</div>
+						<div class="srch">
+							<span>-50%</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 product-left">
+					<div class="product-main simpleCart_shelfItem">
+						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-6.png')}}" alt="" /></a>
 						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
 						<div class="product-bottom">
 							<h3>Оригинальный дизайн</h3>
@@ -136,7 +159,7 @@
 				</div>
 				<div class="col-md-3 product-left">
 					<div class="product-main simpleCart_shelfItem">
-						<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-6.png')}}" alt="" /></a>
+						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-7.png')}}" alt="" /></a>
 						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
 						<div class="product-bottom">
 							<h3>Оригинальный дизайн</h3>
@@ -150,21 +173,7 @@
 				</div>
 				<div class="col-md-3 product-left">
 					<div class="product-main simpleCart_shelfItem">
-						<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-7.png')}}" alt="" /></a>
-						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
-						<div class="product-bottom">
-							<h3>Оригинальный дизайн</h3>
-							<p>Закажите сейчас</p>
-							<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
-						</div>
-						<div class="srch">
-							<span>-50%</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 product-left">
-					<div class="product-main simpleCart_shelfItem">
-						<a href="single.html" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-8.png')}}" alt="" /></a>
+						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-8.png')}}" alt="" /></a>
 						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
 						<div class="product-bottom">
 							<h3>Оригинальный дизайн</h3>

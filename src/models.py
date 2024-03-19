@@ -1,113 +1,69 @@
-from sqlalchemy import Column, String, Text, Float, DateTime, Integer
+from sqlalchemy import Column, String, Text, Float, DateTime, Integer, ForeignKey
 from sqlalchemy.sql import func
-
+from sqlalchemy.orm import relationship
+from fastapi_storages.integrations.sqlalchemy import FileType
+from app import product_image_storage
 from db import Base
 
 
-# класс с ремнями
-class Belts(Base):
-    __tablename__ = "belts"
+class ProductType(Base):
+    __tablename__ = "product_type"
     id = Column(Integer, primary_key=True)
+    name = Column(String(200))
+    description = Column(Text())
+    products = relationship("Product", back_populates="product_type")
+    created_at = Column(DateTime, server_default=func.now())  # дата создания
+    updated_at = Column(DateTime, onupdate=func.now())  # дата обновления
 
-    name = Column(String(200))  # название товара
+    def __repr__(self):
+        return (
+            f"<Название: {self.name}, материал: {self.description}>")
+
+
+class Product(Base):
+    __tablename__ = "product"
+    id = Column(Integer, primary_key=True)
+    product_image = Column(FileType(storage=product_image_storage))  # адрес картинки
+    name = Column(String(200))  # название товара\
     description = Column(Text())  # описание товара
     material = Column(String(100))  # материал
+    price = Column(Float(10))  # цена
     length = Column(String(50))  # длина
     color = Column(String(50))  # цвет
     width = Column(String(50))  # ширина
-    price = Column(Float(10))  # цена
-
+    size = Column(String(100))  # размеры
+    url = Column(String(250))  # ссылка на товар АВИТО
+    product_type_id = Column(Integer, ForeignKey("product_type.id"))
+    categories = relationship("Category", secondary="product2category")
+    product_type = relationship("ProductType", back_populates="products")
     created_at = Column(DateTime, server_default=func.now())  # дата создания
-    updated_at = Column(DateTime, server_onupdate=func.now())  # дата обновления
+    updated_at = Column(DateTime, onupdate=func.now())  # дата обновления
+    def get_image_url(self):
+        return str(self.product_image).replace('..','')
+
 
     def __repr__(self):
-        return(f"<Название: {self.name}, материал: {self.material}, цвет: {self.color}, цена: {self.price}>")
+        return (
+            f"<Название: {self.name}, материал: {self.material}, "
+            f"цвет: {self.color}, цена: {self.price}>")
 
 
+class Category(Base):
+    __tablename__ = "category"
 
-# класс с пряжками
-class Buckles(Base):
-    __tablename__ = "buckles"
     id = Column(Integer, primary_key=True)
-
-    name = Column(String(200))  # название товара
-    description = Column(Text())  # описание товара
-    material = Column(String(100))  # материал
-    size = Column(String(100))  # размеры
-    color = Column(String(50))  # цвет
-    price = Column(Float(10))  # цена
-
+    name = Column(String(100))  # название
+    description = Column(Text())  # описание
+    products = relationship("Product", secondary="product2category")
     created_at = Column(DateTime, server_default=func.now())  # дата создания
-    updated_at = Column(DateTime, server_default=func.now())  # дата обновления
+    updated_at = Column(DateTime, onupdate=func.now())  # дата обновления
 
     def __repr__(self):
-        return (f"<Название: {self.name}, материал: {self.material}, цвет: {self.color}, цена: {self.price}>")
+        return (f"< название: {self.name}>")
 
 
-#  класс Портмоне
-class Purse(Base):
-    __tablename__ = "purse"
+class Product2Category(Base):
+    __tablename__ = "product2category"
     id = Column(Integer, primary_key=True)
-
-    name = Column(String(200))  # название товара
-    description = Column(Text())  # описание товара
-    material = Column(String(100))  # материал
-    size = Column(String(100))  # размеры
-    color = Column(String(50))  # цвет
-    price = Column(Float(10))  # цена
-
-    created_at = Column(DateTime, server_default=func.now())  # дата создания
-    updated_at = Column(DateTime, server_default=func.now())  # дата обновления
-
-    def __repr__(self):
-        return (f"<Название: {self.name}, материал: {self.material}, цвет: {self.color}, цена: {self.price}>")
-
-# класс кошельки
-class Wallets(Base):
-    __tablename__ = "wallets"
-    id = Column(Integer, primary_key=True)
-
-    name = Column(String(200))  # название товара
-    description = Column(Text())  # описание товара
-    material = Column(String(100))  # материал
-    size = Column(String(100))  # размеры
-    color = Column(String(50))  # цвет
-    price = Column(Float(10))  # цена
-
-
-#  класс картхолдеры
-class Cartholders(Base):
-    __tablename__ = "cartholders"
-    id = Column(Integer, primary_key=True)
-
-    name = Column(String(200))  # название товара
-    description = Column(Text())  # описание товара
-    material = Column(String(100))  # материал
-    size = Column(String(100))  # размеры
-    color = Column(String(50))  # цвет
-    price = Column(Float(10))  # цена
-
-    created_at = Column(DateTime, server_default=func.now())  # дата создания
-    updated_at = Column(DateTime, server_default=func.now())  # дата обновления
-
-    def __repr__(self):
-        return (f"<Название: {self.name}, материал: {self.material}, цвет: {self.color}, цена: {self.price}>")
-
-
-# класс стельки
-class Insoles(Base):
-    __tablename__ = "insoles"
-    id = Column(Integer, primary_key=True)
-
-    name = Column(String(200))  # название товара
-    description = Column(Text())  # описание товара
-    material = Column(String(100))  # материал
-    size = Column(String(100))  # размеры
-    color = Column(String(50))  # цвет
-    price = Column(Float(10))  # цена
-
-    created_at = Column(DateTime, server_default=func.now())  # дата создания
-    updated_at = Column(DateTime, server_default=func.now())  # дата обновления
-
-    def __repr__(self):
-        return (f"<Название: {self.name}, материал: {self.material}, цвет: {self.color}, цена: {self.price}>")
+    product_id = Column(Integer, ForeignKey("product.id"))
+    category_id = Column(Integer, ForeignKey("category.id"))
