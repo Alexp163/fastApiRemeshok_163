@@ -1,10 +1,16 @@
-from models import Product
+from models import Product, Category
 from db import SessionLocal
 from pprint import pprint
 
 db = SessionLocal()
-products = db.query(Product).all()
-pprint(products)
+
+categories = db.query(Category).all()
+for category in categories:
+    print("====", category.name)
+    for product in category.products:
+        pprint(product)
+
+
 
 
 

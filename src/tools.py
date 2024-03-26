@@ -12,3 +12,9 @@ def make_product_groups(products, amount):
     if i != 0:
         groups.append(group)
     return groups
+
+
+def make_categories_groups(categories, amount):
+    for category in categories:
+        category.group = make_product_groups(category.products, amount)
+    return categories

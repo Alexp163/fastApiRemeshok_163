@@ -2,13 +2,19 @@ from fastapi import Request
 from db import SessionLocal
 from app import app
 from templates import render_template
-from tools import make_product_groups
-from models import Product, ProductType
+from tools import make_product_groups, make_categories_groups
+from models import Product, ProductType, Category
 
 
 @app.get("/")
 async def index(request: Request):
-    return render_template("index.html", request=request)
+    db = SessionLocal()
+    product_types = db.query(ProductType).all()
+    categories = db.query(Category).all()
+    categories = make_categories_groups(categories, 4)
+    return render_template("index.html", request=request,
+                           product_types=product_types, categories=categories)
+
 
 @app.get("/single")
 def single(request: Request):
@@ -52,4 +58,6 @@ def single(request: Request, product_id: int):
     db = SessionLocal()
     product = db.query(Product).get(product_id)
     return render_template("single.html", request=request, product=product)
+
+
 
