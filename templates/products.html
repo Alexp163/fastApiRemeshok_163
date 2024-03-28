@@ -2,6 +2,23 @@
 {% block title %}Продукция{% endblock %}
 
 {% block content %}
+
+<style>
+.product-row {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: left !important;
+}
+.product-card {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: center !important;
+}
+.product-clearfix {
+	height: 20px !important;
+}
+</style>
+
 	<!--start-breadcrumbs-->
 	<div class="breadcrumbs">
 		<div class="container">
@@ -45,5 +62,6 @@
 			</div>
 		</div>
 	</div>
-
+{% include "include/top_footer.html" %}
+{% include "include/bottom_footer.html" %}
 {% endblock %}

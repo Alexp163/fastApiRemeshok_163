@@ -624,7 +624,7 @@ figure.effect-bubba:hover p,figure.effect-bubba:hover h2 {
     border:1px solid #ECEAEA;
 }
 .product {
-    padding: 3em 0px 6em 0px;
+    padding: 3em 0px 1em 0px;
 }
 .product-bottom h3 {
     font-size: 16px;
@@ -868,7 +868,7 @@ a.mask {
 	-ms-transition: 0.5s all;
 }
 .footer{
-	padding:3em 0px;
+	padding: 2em 0px 1em 0px;
 }
 .footer-right {
     text-align: right;
@@ -3067,18 +3067,6 @@ ul.tag-men {
 }
 }
 
-.product-row {
-	display: flex !important;
-	flex-wrap: wrap !important;
-	justify-content: left !important;
-}
-.product-card {
-	display: flex !important;
-	flex-wrap: wrap !important;
-	justify-content: center !important;
-}
-.product-clearfix {
-	height: 20px !important;
-}
+
 
 /*--media-quaries-end-here--*/

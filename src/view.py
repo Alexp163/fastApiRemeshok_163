@@ -3,7 +3,7 @@ from db import SessionLocal
 from app import app
 from templates import render_template
 from tools import make_product_groups, make_categories_groups
-from models import Product, ProductType, Category
+from models import Product, ProductType, Category, DescriptText
 
 
 @app.get("/")
@@ -12,8 +12,10 @@ async def index(request: Request):
     product_types = db.query(ProductType).all()
     categories = db.query(Category).all()
     categories = make_categories_groups(categories, 4)
+    descript_text = db.query(DescriptText).first()
     return render_template("index.html", request=request,
-                           product_types=product_types, categories=categories)
+                           product_types=product_types, categories=categories,
+                           descript_text=descript_text)
 
 
 @app.get("/single")

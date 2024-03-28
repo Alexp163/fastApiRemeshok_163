@@ -1,16 +1,3 @@
-<style>
-.information {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: left;
-}
-.col-md-8 infor-left {
-	display: flex ;
-	flex-wrap: wrap ;
-	justify-content: center ;
-}
-
-</style>
 <div class="information">
 	<div class="container">
 		<div class="infor-top">
@@ -27,7 +14,7 @@
 				<h3>Контактная информация</h3>
 					<div class="address">
 						<p> Адрес: Самара,Солнечная улица, 24с2"</p>
-						<p>Email: <a href="mailto:example@email.com">remeshock_163@yandex.ru</a></p>
+						<p>Email: <a href="mailto:{{ descript_text.email}}">{{ descript_text.email }}</a></p>
 						<p> Телефон: +79025181888</p>
 					</div>
 			</div>
@@ -35,24 +22,6 @@
 				<script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A076c21ed47847eb3068ffbe0f19e056205d3e72cc62fcc684c0fd4841fcb0602&amp;width=100%25&amp;height=240&amp;lang=ru_RU&amp;scroll=true"></script>
 			</div>
 
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</div>
-<!--information-end-->
-<!--footer-starts-->
-<div class="footer">
-	<div class="container">
-		<div class="footer-top">
-			<div class="col-md-6 footer-left">
-				<form>
-					<input type="text" value="Введите электронную почту" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Введите электронную почту';}">
-					<input type="submit" value="Подписаться">
-				</form>
-			</div>
-			<div class="col-md-6 footer-right">
-				<p>© 2024 Remeshok_163. Все права защищены. | Дизайн и оформление  <a href="mailto:dr.p163@ya.ru" target="_blank">Александр Попов</a></p>
-			</div>
 			<div class="clearfix"></div>
 		</div>
 	</div>

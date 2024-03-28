@@ -16,5 +16,5 @@ def make_product_groups(products, amount):
 
 def make_categories_groups(categories, amount):
     for category in categories:
-        category.group = make_product_groups(category.products, amount)
+        category.groups = make_product_groups(category.products, amount)
     return categories

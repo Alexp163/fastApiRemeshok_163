@@ -4,7 +4,25 @@
 
 {% block content %}
 
-{% include "include/slider_script.html" %}   <!--Slider-Starts-Here-->
+<!--стили-->
+<style>
+.product-row {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: left !important;
+}
+.product-card {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: center !important;
+}
+.product-clearfix {
+	height: 20px !important;
+}
+</style>
+<!--конец стилей-->
+
+<!-- хлебные крошки начало -->
 <div class="breadcrumbs">
 	<div class="container">
 		<div class="breadcrumbs-main">
@@ -15,210 +33,52 @@
 		</div>
 	</div>
 </div>
-<div class="about">
-	<div class="container">
-		<div class="account-top heading">
-			<h2>Чаще всего покупают-1</h2>
-			<br>
-			<br>
-		</div>
-			<div class="about-top grid-1">
-				<div class="col-md-4 about-left">
-					<figure class="effect-bubba">
-						<img class="img-responsive" src="{{ url_for('static', path='images/1.png')}}" alt=""/>
-						<figcaption>
-							<h2>Хороший ремень-купите не пожалеете! Закажите сейчас</h2>
-							<p>Деньги давай</p>
-						</figcaption>
-					</figure>
-				</div>
-				<div class="col-md-4 about-left">
-					<figure class="effect-bubba">
-						<img class="img-responsive" src="{{ url_for('static', path='images/2.png')}}" alt=""/>
-						<figcaption>
-							<h4>Хороший ремень-купите не пожалеете! Закажите сейчас</h4>
-							<p>Идите лесом!</p>
-						</figcaption>
-					</figure>
-				</div>
-				<div class="col-md-4 about-left">
-					<figure class="effect-bubba">
-						<a href="{{ url_for('products')}}"><img class="img-responsive" src="{{ url_for('static', path='images/3.png')}}" alt=""/>
-						<figcaption>
-							<h4>Хороший ремень-купите не пожалеете! Закажите сейчас</h4>
-							<p>До свиданья</p>
-						</figcaption></a>
-					</figure>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-	</div>
-</div>
-<!--about-end-->
-<!--product-starts-->
+<!-- хлебные крошки конец -->
 
 
 
+
+{% for category in categories %}
 <div class="product">
 	<div class="container">
 		<div class="product-top">
-			<div class="clearfix"></div>
-			<div class="product-one">
-				<div class="account-top heading">
-					<h2>Чаще всего покупают-2</h2>
-				</div>
-				<div class="clearfix"></div>
-				{% for product in category_product %}
-					<div class="col-md-3 product-left">
-						<div class="product-main simpleCart_shelfItem">
-							<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-1.png')}}" alt="" /></a>
-							<p>{{ product.description }}</p>
-							<div class="product-bottom">
-								<h3>{{ product.name }}</h3>
-								<p>Закажите сейчас</p>
-								<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
-							</div>
-							<div class="srch">
-								<span>-20%</span>
-							</div>
-						</div>
-					</div>
-				{% endfor %}
-			</div>
-			<div class="clearfix"></div>
-			<div class="account-top heading">
-				<h2>Чаще всего просматривают</h2>
-			</div>
-			<div class="product-one">
-				<div class="clearfix"></div>
-				<div class="col-md-3 product-left">
-					<div class="product-main simpleCart_shelfItem">
-						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-1.png')}}" alt="" /></a>
-						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
-						<div class="product-bottom">
-							<h3>Оригинальный дизайн</h3>
-							<p>Закажите сейчас</p>
-							<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
-						</div>
-						<div class="srch">
-							<span>-20%</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 product-left">
-					<div class="product-main simpleCart_shelfItem">
-						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-2.png')}}" alt="" /></a>
-						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
-						<div class="product-bottom">
-							<h3>Оригинальный дизайн</h3>
-							<p>Закажите сейчас</p>
-							<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
-						</div>
-						<div class="srch">
-							<span>-30%</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 product-left">
-					<div class="product-main simpleCart_shelfItem">
-						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-3.png')}}"  alt="" /></a>
-						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
-						<div class="product-bottom">
-							<h3>Оригинальный дизайн</h3>
-							<p>Закажите сейчас</p>
-							<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
-						</div>
-						<div class="srch">
-							<span>-30%</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 product-left">
-					<div class="product-main simpleCart_shelfItem">
-						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-4.png')}}" alt="" /></a>
-						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
-						<div class="product-bottom">
-							<h3>Оригинальный дизайн</h3>
-							<p>Закажите сейчас</p>
-							<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
-						</div>
-						<div class="srch">
-							<span>-50%</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
 			<div class="product-one">
 				<div class="clearfix"></div>
 				<div class="account-top heading">
-					<h2>Советская классика</h2>
+					<h2>{{ category.name }}</h2>
 					<br>
 					<br>
 				</div>
-				<div class="col-md-3 product-left">
-					<div class="product-main simpleCart_shelfItem">
-						<p></p>
-						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-5.png')}}" alt="" /></a>
-						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
-						<div class="product-bottom">
-							<h3>Оригинальный дизайн</h3>
-							<p>Закажите сейчас</p>
-							<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
+				<div class="col-md-12 prdt-left">
+					{% for group in category.groups %}
+						<div class="row product-row">
+							{% for product in group %}
+								<div class="col-md-3 product-card">
+									<div class="product-main simpleCart_shelfItem">
+										<a href="{{ url_for('single', product_id=product.id)}}" class="mask"><img class="img-responsive zoom-img" src="{{ product.product_image }}" alt="" /></a>
+										<div class="product-bottom">
+											<h3>{{ product.name }}</h3>
+											<p>{{ product.description }}</p>
+											<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">{{ product.price }} рублей </span></h4>
+										</div>
+										<div class="srch srch1">
+											<span>Закажи сейчас со скидкой 10% </span>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
 						</div>
-						<div class="srch">
-							<span>-50%</span>
-						</div>
-					</div>
+						<div class="product-clearfix"></div>
+					{% endfor %}
 				</div>
-
-				<div class="col-md-3 product-left">
-					<div class="product-main simpleCart_shelfItem">
-						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-6.png')}}" alt="" /></a>
-						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
-						<div class="product-bottom">
-							<h3>Оригинальный дизайн</h3>
-							<p>Закажите сейчас</p>
-							<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
-						</div>
-						<div class="srch">
-							<span>-50%</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 product-left">
-					<div class="product-main simpleCart_shelfItem">
-						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-7.png')}}" alt="" /></a>
-						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
-						<div class="product-bottom">
-							<h3>Оригинальный дизайн</h3>
-							<p>Закажите сейчас</p>
-							<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
-						</div>
-						<div class="srch">
-							<span>-50%</span>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 product-left">
-					<div class="product-main simpleCart_shelfItem">
-						<a href="{{ url_for('single')}}" class="mask"><img class="img-responsive zoom-img" src="{{ url_for('static', path='images/p-8.png')}}" alt="" /></a>
-						<p>Хороший ремень-купите не пожалеете! Закажите сейчас</p>
-						<div class="product-bottom">
-							<h3>Оригинальный дизайн</h3>
-							<p>Закажите сейчас</p>
-							<h4><a class="item_add" href="#"><i></i></a> <span class=" item_price">720.00 рублей</span></h4>
-						</div>
-						<div class="srch">
-							<span>-50%</span>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
 			</div>
 		</div>
 	</div>
 </div>
+{% endfor %}
+{% include "include/top_footer.html" %}
+{% include "include/bottom_footer.html" %}
+
 {% endblock %}
 
 

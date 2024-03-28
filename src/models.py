@@ -67,3 +67,15 @@ class Product2Category(Base):
     id = Column(Integer, primary_key=True)
     product_id = Column(Integer, ForeignKey("product.id"))
     category_id = Column(Integer, ForeignKey("category.id"))
+
+
+class DescriptText(Base):
+    __tablename__ = "descript_text"
+    id = Column(Integer, primary_key=True)
+    description = Column(Text())  # описание сайта
+    email = Column(String(100))  # почта для контакта
+    telephone = Column(String(50))  # телефон для контакта
+    link_1 = Column(String(250))  # ссылка для вставки 1
+    link_2 = Column(String(250))  # ссылка для вставки 2
+    created_at = Column(DateTime, server_default=func.now())  # дата создания
+    updated_at = Column(DateTime, onupdate=func.now())  # дата обновления
