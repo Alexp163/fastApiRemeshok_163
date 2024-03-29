@@ -31,35 +31,52 @@ def purse(request: Request):
 @app.get("/products_by_type/{product_type_id}")
 def products_by_type(request: Request, product_type_id: int):
     db = SessionLocal()
+    product_types = db.query(ProductType).all()
     products = db.query(Product).filter_by(product_type_id=product_type_id)
     product_groups = make_product_groups(products, 4)
+    descript_text = db.query(DescriptText).first()
     return render_template("products.html", request=request,
-                           product_groups=product_groups)
+                           product_groups=product_groups,
+                           product_types=product_types, descript_text=descript_text)
 
 
 @app.get("/products")
 def products(request: Request):
     db = SessionLocal()
+    product_types = db.query(ProductType).all()
     products = db.query(Product).all()
     product_groups = make_product_groups(products, 4)
+    descript_text = db.query(DescriptText).first()
     return render_template("products.html", request=request,
-                           product_groups=product_groups)
+                           product_groups=product_groups,
+                           descript_text=descript_text, product_types=product_types)
 
 
 @app.get("/about_us")
 def about_us(request: Request):
-    return render_template("about_us.html", request=request)
+    db = SessionLocal()
+    product_types = db.query(ProductType).all()
+    descript_text = db.query(DescriptText).first()
+    return render_template("about_us.html", request=request,
+                           descript_text=descript_text, product_types=product_types)
 
 
 @app.get("/contacts")
 def contacts(request: Request):
-    return render_template("contacts.html", request=request)
+    db = SessionLocal()
+    product_types = db.query(ProductType).all()
+    descript_text = db.query(DescriptText).first()
+    return render_template("contacts.html", request=request,
+                           descript_text=descript_text, product_types=product_types)
 
 @app.get("/single/{product_id}")
 def single(request: Request, product_id: int):
     db = SessionLocal()
+    product_types = db.query(ProductType).all()
+    descript_text = db.query(DescriptText).first()
     product = db.query(Product).get(product_id)
-    return render_template("single.html", request=request, product=product)
+    return render_template("single.html", request=request, product=product,
+                           descript_text=descript_text, product_types=product_types)
 
 
 

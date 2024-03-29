@@ -756,14 +756,14 @@ a.mask {
     -o-transform: rotatey(360deg);
     -ms-transform: rotatey(360deg);
 }
-.infor-left ul li a span.fb{
-	background-position:0px 0px;
-}
-.infor-left ul li a span.twit{
-	background-position:-34px 0px;
-}
-.infor-left ul li a span.google{
-	background-position:-68px 0px;
+/*.infor-left ul li a span.fb{*/
+/*	background-position:0px 0px;*/
+/*}*/
+/*.infor-left ul li a span.twit{*/
+/*	background-position:-34px 0px;*/
+/*}*/
+/*.infor-left ul li a span.google{*/
+/*	background-position:-68px 0px;*/
 }
 .infor-left ul {
     padding: 0;
