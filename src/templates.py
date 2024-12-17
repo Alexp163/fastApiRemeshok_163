@@ -9,3 +9,6 @@ app.mount("/static", StaticFiles(directory="../static"), name="static")
 
 def render_template(name, **kwargs):
     return templates.TemplateResponse(name, kwargs)
+
+
+

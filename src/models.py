@@ -79,3 +79,4 @@ class DescriptText(Base):
     link_2 = Column(String(250))  # ссылка для вставки 2
     created_at = Column(DateTime, server_default=func.now())  # дата создания
     updated_at = Column(DateTime, onupdate=func.now())  # дата обновления
+
