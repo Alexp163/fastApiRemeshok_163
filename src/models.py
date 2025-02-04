@@ -6,6 +6,7 @@ from app import product_image_storage
 from db import Base
 
 
+
 class ProductType(Base):
     __tablename__ = "product_type"
     id = Column(Integer, primary_key=True)
