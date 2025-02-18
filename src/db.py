@@ -7,3 +7,4 @@ engine = create_engine(SQLALCHEMY_DATABASE_URI)
 SessionLocal = sessionmaker(engine)
 Base = declarative_base()
 print(Base.metadata)
+

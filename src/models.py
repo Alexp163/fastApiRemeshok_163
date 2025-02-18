@@ -60,7 +60,7 @@ class Category(Base):
     updated_at = Column(DateTime, onupdate=func.now())  # дата обновления
 
     def __repr__(self):
-        return (f"< название: {self.name}>")
+        return f" название: {self.name}"
 
 
 class Product2Category(Base):

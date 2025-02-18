@@ -1,0 +1,9 @@
+services:
+  remeshok:
+    build: .
+    ports:
+      - "8000:8000"
+    restart: always
+    volumes:
+      - /home/alex/Документы/PycharmProjects/fastApiRemeshok_163/static/images/:/app/static/images
+      - /home/alex/Документы/PycharmProjects/fastApiRemeshok_163/database:/app/database
